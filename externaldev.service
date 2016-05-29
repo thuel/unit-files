@@ -1,4 +1,4 @@
-#To be copied to /lib/systemd/system/nginx.service
+#To be copied to /lib/systemd/system/externaldev.service
 #Wants /usr/local/bin/exdev.sh
 
 [Unit]
@@ -12,4 +12,4 @@ ExecStop=/usr/local/bin/exdev.sh unmount
 RemainAfterExit=yes
 
 [Install]
-WandtedBy=multi-user.target
+WantedBy=multi-user.target
