@@ -1,0 +1,15 @@
+#To be copied to /lib/systemd/system/nginx.service
+#Wants /usr/local/bin/exdev.sh
+
+[Unit]
+Description=Service to mount and unmount the external drives specified in this unitfile.
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/exdev.sh mount
+ExecStop=/usr/local/bin/exdev.sh unmount
+RemainAfterExit=yes
+
+[Install]
+WandtedBy=multi-user.target
