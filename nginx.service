@@ -1,0 +1,17 @@
+#To be copied to /lib/systemd/system/nginx.service
+
+[Unit]
+Description=A high performance webserver and reverse proxy server.
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/nginx.pid
+ExecStartPre=/usr/local/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/local/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/local/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=/usr/local/sbin/nginx -s stop
+
+[Install]
+WantedBy=multi-user.target
+ 
