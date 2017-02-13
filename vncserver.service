@@ -1,0 +1,14 @@
+#To be copied to /lib/systemd/system/vncserver.service
+
+[Unit]
+Description=A VNC server.
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/vncserver_scricpt start
+ExecStop=/usr/local/sbin/vncserver_script stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
