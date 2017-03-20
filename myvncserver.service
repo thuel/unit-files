@@ -1,0 +1,14 @@
+# to be copied to /etc/systemd/system/
+# needs myvncserver script in /usr/local/bin/
+[Unit]
+Description=Manage VNC Server on this droplet
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/myvncserver start
+ExecStop=/usr/local/bin/myvncserver stop
+ExecReload=/usr/local/bin/myvncserver restart
+User=vnc
+
+[Install]
+WantedBy=multi-user.target
