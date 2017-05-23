@@ -1,0 +1,15 @@
+# Systemd unit file to lunch a reboot reminder script. 
+# Use case: when admins have to take action after a reboot, the
+#     service sends them a reminder e-mail
+# All configuration has to be done in the accompaning rebootreminder.sh
+
+[Unit]
+Description=Reboot reminder script Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/local/bin/rebootreminder.sh
+
+[Install]
+WantedBy=multi-user.target
