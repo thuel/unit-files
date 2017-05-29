@@ -19,6 +19,5 @@ for admin in admins:
     cmds.append('echo "%s" | mail -s "%s" %s' % (message, subject, admin))
     
 for cmd in cmds:
-    sp.Popen(cmd, shell=True, stdout=sp.PIPE)
-
+    process = sp.Popen(cmd, shell=True, stdout=sp.PIPE)
 
