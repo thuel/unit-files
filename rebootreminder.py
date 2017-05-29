@@ -2,6 +2,9 @@
 
 # script to notify admins with an e-mail that the system has rebooted
 #    and they should take an special action
+# Doesn't work when executed by systemd service
+# Work around: use crontab with @reboot /usr/local/bin/rebootreminder.py
+
 
 import os, subprocess as sp
 

@@ -3,6 +3,10 @@
 #     service sends them a reminder e-mail
 # All configuration has to be done in the accompaning rebootreminder.sh
 
+#Doesn't work: The service seems to run successfully, but no mail sent.
+#Work around: use crontab with @reboot /usr/local/bin/rebootreminder.py
+
+
 [Unit]
 Description=Reboot reminder script Service
 After=multi-user.target
